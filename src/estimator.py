@@ -4,8 +4,17 @@ def estimator(data):
       days = timeEstimate(data)
       
       return {
-        "data": data
-        
+        "data": data,
+        "estimate": {
+          "impact": {
+            "currentlyInfected": currentlyInfectedImpact,
+            "infectionsByRequestedTime": currentlyInfectedImpact * (2 ** (int(days / 3) )
+          },
+          "severeImpact": {
+            
+            
+          }
+        }
       }
 
 def timeEstimate(data):
