@@ -16,11 +16,11 @@ def estimator(data):
       bedsRequesteTimeImpact = int(beds - severeCaseRequestTimeImpact)
       bedsRequesteTimeSevereImpact = int(beds - severeCaseRequestTimeSevereImpact)
       
-      casesForICUByRequestedTimeImpact = 0.05 * infectionRequestTimeImpact
-      casesForICUByRequestedTimeSevereImpact = 0.05 * infectionRequestTimeSevereImpact
+      casesForICUByRequestedTimeImpact = math.floor(0.05 * infectionRequestTimeImpact)
+      casesForICUByRequestedTimeSevereImpact = math.floor(0.05 * infectionRequestTimeSevereImpact)
       
-      casesForVentilatorsByRequestedTimeImpact = 0.02 * infectionRequestTimeImpact
-      casesForVentilatorsByRequestedTimeSevereImpact = 0.02 * infectionRequestTimeSevereImpact
+      casesForVentilatorsByRequestedTimeImpact = math.floor(0.02 * infectionRequestTimeImpact)
+      casesForVentilatorsByRequestedTimeSevereImpact = math.floor(0.02 * infectionRequestTimeSevereImpact)
       
       dollarsInFlightImpact = math.floor((infectionRequestTimeImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
       dollarsInFlightSevereImpact = math.floor((infectionRequestTimeSevereImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
