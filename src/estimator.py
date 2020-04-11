@@ -7,12 +7,12 @@ def estimator(data):
         "data": data,
         "estimate": {
           "impact": {
-            "currentlyInfected": currentlyInfectedImpact
-            
+            "currentlyInfected": currentlyInfectedImpact,
+            "infectionsByRequestedTime": currentlyInfectedImpact * (2 ** (int(days / 3)))
           },
           "severeImpact": {
-            "currentlyInfected":currentlyInfectedSevereImpact
-            
+            "currentlyInfected":currentlyInfectedSevereImpact,
+            "infectionsByRequestedTime": currentlyInfectedSevereImpact * (2 ** (int(days 3)))
             
           }
         }
