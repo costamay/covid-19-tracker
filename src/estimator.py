@@ -22,8 +22,8 @@ def estimator(data):
       casesForVentilatorsByRequestedTimeImpact = 0.02 * infectionRequestTimeImpact
       casesForVentilatorsByRequestedTimeSevereImpact = 0.02 * infectionRequestTimeSevereImpact
       
-      dollarsInFlightImpact = ((infectionRequestTimeImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
-      dollarsInFlightSevereImpact = ((infectionRequestTimeSevereImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
+      dollarsInFlightImpact = math.floor((infectionRequestTimeImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
+      dollarsInFlightSevereImpact = math.floor((infectionRequestTimeSevereImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
       
       output = {
         "data": data,
@@ -59,3 +59,4 @@ def timeEstimate(data):
       elif data['periodType'] == 'months':
             days = data['timeToElapse'] * 30
       return days
+
