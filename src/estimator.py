@@ -5,15 +5,15 @@ def estimator(data):
       
       return {
         "data": data,
-        "impact": {
-              "currentlyInfected": currentlyInfectedImpact,
-              "infectionsByRequestedTime": currentlyInfectedImpact * (2 ** (int(days / 3) )
-        },
-       "severeImpact": {
-             "currentlyInfected":currentlyInfectedSevereImpact,
-             "infectionsByRequestedTime": currentlyInfectedSevereImpact * (2 ** (int(days / 3))
-       }
-        
+        "estimate": {
+          "impact": {
+            
+          },
+          "severeImpact": {
+            
+            
+          }
+        }
       }
 
 def timeEstimate(data):
