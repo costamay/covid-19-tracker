@@ -5,16 +5,16 @@ def estimator(data):
       
       days = timeEstimate(data)
       
-      infectionRequestTimeImpact = currentlyInfectedImpact * (2 ** (math.floor(days / 3)))
-      infectionRequestTimeSevereImpact = currentlyInfectedSevereImpact * (2 ** (math.floor(days / 3)))
+      infectionRequestTimeImpact = currentlyInfectedImpact * (2 ** (int(days / 3)))
+      infectionRequestTimeSevereImpact = currentlyInfectedSevereImpact * (2 ** (int(days / 3)))
       
       severeCaseRequestTimeImpact = (0.15 * infectionRequestTimeImpact)
       severeCaseRequestTimeSevereImpact = (0.15 * infectionRequestTimeSevereImpact)
       
-      beds = (0.35 * data['totalHospitalBeds'])
+      beds = (0.35 * int(data['totalHospitalBeds']))
       
-      bedsRequesteTimeImpact = math.floor(beds - severeCaseRequestTimeImpact)
-      bedsRequesteTimeSevereImpact = math.floor(beds - severeCaseRequestTimeSevereImpact)
+      bedsRequesteTimeImpact = int(beds - severeCaseRequestTimeImpact)
+      bedsRequesteTimeSevereImpact = int(beds - severeCaseRequestTimeSevereImpact)
       
       output = {
         "data": data,
