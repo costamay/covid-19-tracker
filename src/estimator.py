@@ -7,9 +7,11 @@ def estimator(data):
         "data": data,
         "estimate": {
           "impact": {
+            "currentlyInfected": currentlyInfectedImpact
             
           },
           "severeImpact": {
+            "currentlyInfected":currentlyInfectedSevereImpact
             
             
           }
