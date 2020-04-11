@@ -22,8 +22,8 @@ def estimator(data):
       casesForVentilatorsByRequestedTimeImpact = 0.02 * infectionRequestTimeImpact
       casesForVentilatorsByRequestedTimeSevereImpact = 0.02 * infectionRequestTimeSevereImpact
       
-      dollarsInFlightImpact = int((infectionRequestTimeImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
-      dollarsInFlightSevereImpact = int((infectionRequestTimeSevereImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
+      dollarsInFlightImpact = ((infectionRequestTimeImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
+      dollarsInFlightSevereImpact = ((infectionRequestTimeSevereImpact * (data['region']['avgDailyIncomePopulation']) * (data['region']['avgDailyIncomeInUSD'])) / days)
       
       output = {
         "data": data,
