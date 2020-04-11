@@ -16,19 +16,34 @@ def estimator(data):
       bedsRequesteTimeImpact = int(beds - severeCaseRequestTimeImpact)
       bedsRequesteTimeSevereImpact = int(beds - severeCaseRequestTimeSevereImpact)
       
+      casesForICUByRequestedTimeImpact = 0.05 * infectionRequestTimeImpact
+      casesForICUByRequestedTimeSevereImpact = 0.05 * infectionRequestTimeSevereImpact
+      
+      casesForVentilatorsByRequestedTimeImpact = 0.02 * infectionRequestTimeImpact
+      casesForVentilatorsByRequestedTimeSevereImpact = 0.02 * infectionRequestTimeSevereImpact
+      
+      dollarsInFlightImpact = int(infectionRequestTimeImpact * 0.65 * (data['region']['avgDailyIncomeInUSD']) * days)
+      dollarsInFlightSevereImpact = int(infectionRequestTimeSevereImpact * 0.65 * (data['region']['avgDailyIncomeInUSD']) * days)
+      
       output = {
         "data": data,
         "impact": {
               "currentlyInfected": currentlyInfectedImpact,
               "infectionsByRequestedTime": infectionRequestTimeImpact,
               "severeCasesByRequestedTime": severeCaseRequestTimeImpact,
-              "hospitalBedsByRequestedTime": bedsRequesteTimeImpact
+              "hospitalBedsByRequestedTime": bedsRequesteTimeImpact,
+              "casesForICUByRequestedTime": casesForICUByRequestedTimeImpact,
+              "casesForVentilatorsByRequestedTime": casesForVentilatorsByRequestedTimeImpact,
+              "dollarsInFlight": dollarsInFlightImpact
         },
         "severeImpact": {
               "currentlyInfected":currentlyInfectedSevereImpact,
               "infectionsByRequestedTime": infectionRequestTimeSevereImpact,
               "severeCasesByRequestedTime": severeCaseRequestTimeSevereImpact,
-              "hospitalBedsByRequestedTime": bedsRequesteTimeSevereImpact
+              "hospitalBedsByRequestedTime": bedsRequesteTimeSevereImpact,
+              "casesForICUByRequestedTime": casesForICUByRequestedTimeSevereImpact,
+              "casesForVentilatorsByRequestedTime": casesForVentilatorsByRequestedTimeSevereImpact,
+              "dollarsInFlight": dollarsInFlightSevereImpact
              
         }
         
