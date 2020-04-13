@@ -17,26 +17,36 @@ logging.basicConfig(filename='requests.txt', level=logging.INFO)
 def get_time():
     g.start_time = time.time()
 
-@app.route('/api/v1/on-covid-19/', methods=['POST'])
-@app.route('/api/v1/on-covid-19/json', methods=['POST'])
+@app.route('/api/v1/on-covid-19/', methods=['GET', 'POST'])
+@app.route('/api/v1/on-covid-19/json', methods=['GET', 'POST'])
 def covid_json():
-    request_data = request.get_json()
-    data = estimator(request_data)
+    if request.method == "GET":
+        res = Response("", content_type="application/json")
+        return res, 200
     
-    response = Response(json.dumps(data), 200, mimetype='application/json')
-    response.headers['Location'] = ("/api/v1/on-covid-19/json")
-    return response
-    # return jsonify(data)
+    if request.method == "POST":
+        request_data = request.get_json()
+        data = estimator(request_data)
+        
+        response = Response(json.dumps(data), 200, mimetype='application/json')
+        response.headers['Location'] = ("/api/v1/on-covid-19/json")
+        return response
+        # return jsonify(data)
     
 @app.route('/api/v1/on-covid-19/xml', methods=['POST'])
 def covid_xml():
-    request_data = request.get_json()
-    data = estimator(request_data)
+    if request.method == "GET":
+        res = Response("", content_type="application/xml")
+        return res, 200
     
-    res = Response(dicttoxml(data, attr_type=False), status=200,  content_type="application/xml")
-    res.headers['Location'] = ("/api/v1/on-covid-19/xml")
-    return res
-    # return dicttoxml(data)
+    if request.method == "POST":
+        request_data = request.get_json()
+        data = estimator(request_data)
+        
+        res = Response(dicttoxml(data, attr_type=False), status=200,  content_type="application/xml")
+        res.headers['Location'] = ("/api/v1/on-covid-19/xml")
+        return res
+        # return dicttoxml(data)
 
 @app.route('/api/v1/on-covid-19/logs', methods=['GET'])
 def logs():
