@@ -20,6 +20,7 @@ def get_time():
 @app.route('/api/v1/on-covid-19/', methods=['GET', 'POST'])
 @app.route('/api/v1/on-covid-19/json', methods=['GET', 'POST'])
 def covid_json():
+    
     if request.method == "GET":
         res = Response("", content_type="application/json")
         return res, 200
@@ -33,7 +34,7 @@ def covid_json():
         return response
         # return jsonify(data)
     
-@app.route('/api/v1/on-covid-19/xml', methods=['POST'])
+@app.route('/api/v1/on-covid-19/xml', methods=['GET', 'POST'])
 def covid_xml():
     if request.method == "GET":
         res = Response("", content_type="application/xml")
