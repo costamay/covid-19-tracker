@@ -17,37 +17,27 @@ logging.basicConfig(filename='requests.txt', level=logging.INFO)
 def get_time():
     g.start_time = time.time()
 
-@app.route('/api/v1/on-covid-19/', methods=['GET', 'POST'])
-@app.route('/api/v1/on-covid-19/json', methods=['GET', 'POST'])
+@app.route('/api/v1/on-covid-19/', methods=['POST'])
+@app.route('/api/v1/on-covid-19/json', methods=['POST'])
 def covid_json():
     
-    if request.method == "GET":
-        res = Response("", content_type="application/json")
-        return res, 200
+    data = request.get_json()
+    output = estimator(data)
+    return jsonify(output), 200
     
-    if request.method == "POST":
-        request_data = request.get_json()
-        data = estimator(request_data)
-        
-        response = Response(json.dumps(data), 200, mimetype='application/json')
-        response.headers['Location'] = ("/api/v1/on-covid-19/json")
-        return response
-        # return jsonify(data)
-    
-@app.route('/api/v1/on-covid-19/xml', methods=['GET', 'POST'])
+@app.route('/api/v1/on-covid-19/xml', methods=['POST'])
 def covid_xml():
-    if request.method == "GET":
-        res = Response("", content_type="application/xml")
-        return res, 200
     
-    if request.method == "POST":
-        request_data = request.get_json()
-        data = estimator(request_data)
-        
-        res = Response(dicttoxml(data, attr_type=False), status=200,  content_type="application/xml")
-        res.headers['Location'] = ("/api/v1/on-covid-19/xml")
-        return res
-        # return dicttoxml(data)
+    data = request.get_json()
+    output = estimator(data)
+    res = \
+        Response(dicttoxml(
+            output, attr_type=False),
+            content_type="application/xml")
+    return res, 200
+    
+    
+    
 
 @app.route('/api/v1/on-covid-19/logs', methods=['GET'])
 def logs():
@@ -56,13 +46,13 @@ def logs():
         data = f.readlines()
     for line in data:
         if "root" in line and "404" not in line:
-            logs.append(line[20:])
+            logs.append(line[10:])
 
     return Response("".join(logs), mimetype="text/plain")
 
 @app.after_request
 def log_request_info(response):
-    response_time = int((time.time() - g.start) * 1000)
+    response_time = int((time.time() - g.start_time) * 1000)
     status_code = response.status.split()[0]
     logging.info(
         f"{request.method}\t\t{request.path}\t\t{status_code}\t\t{str(response_time).zfill(2)}ms\n"

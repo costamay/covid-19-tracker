@@ -8,8 +8,8 @@ def estimator(data):
       infectionRequestTimeImpact = currentlyInfectedImpact * (2 ** (int(days / 3)))
       infectionRequestTimeSevereImpact = currentlyInfectedSevereImpact * (2 ** (int(days / 3)))
       
-      severeCaseRequestTimeImpact = (0.15 * infectionRequestTimeImpact)
-      severeCaseRequestTimeSevereImpact = (0.15 * infectionRequestTimeSevereImpact)
+      severeCaseRequestTimeImpact = math.floor(0.15 * infectionRequestTimeImpact)
+      severeCaseRequestTimeSevereImpact = math.floor(0.15 * infectionRequestTimeSevereImpact)
       
       beds = (0.35 * int(data['totalHospitalBeds']))
       
