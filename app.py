@@ -20,21 +20,41 @@ def get_time():
 @app.route('/api/v1/on-covid-19/', methods=['POST'])
 @app.route('/api/v1/on-covid-19/json', methods=['POST'])
 def covid_json():
+    if request.method == "GET":
+        res = Response("", content_type="application/json")
+        return res, 200
+
+    if request.method == "POST":
+        data = request.get_json()
+        output = estimator(data)
+        return jsonify(output), 200
     
-    data = request.get_json()
-    output = estimator(data)
-    return jsonify(output), 200
+    # data = request.get_json()
+    # output = estimator(data)
+    # return jsonify(output), 200
     
 @app.route('/api/v1/on-covid-19/xml', methods=['POST'])
 def covid_xml():
+    if request.method == "GET":
+        res = Response("", content_type="application/xml")
+        return res, 200
+
+    if request.method == "POST":
+        data = request.get_json()
+        output = estimator(data)
+        res = \
+            Response(dicttoxml(
+                output, attr_type=False),
+                content_type="application/xml")
+        return res, 200
     
-    data = request.get_json()
-    output = estimator(data)
-    res = \
-        Response(dicttoxml(
-            output, attr_type=False),
-            content_type="application/xml")
-    return res, 200
+    # data = request.get_json()
+    # output = estimator(data)
+    # res = \
+    #     Response(dicttoxml(
+    #         output, attr_type=False),
+    #         content_type="application/xml")
+    # return res, 200
     
     
     

@@ -1,11 +1,8 @@
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 565-032-084
-INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
-
-INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 16:34:54] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
 INFO:root:POST		/api/v1/on-covid-19/json		200		00ms
 
-INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 16:35:03] "[37mPOST /api/v1/on-covid-19/json HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 19:45:54] "[37mPOST /api/v1/on-covid-19/json HTTP/1.1[0m" 200 -
 INFO:dicttoxml:Inside dicttoxml(): type(obj) is: "dict", obj="{'data': {'region': {'name': 'Africa', 'avgAge': 19.7, 'avgDailyIncomeInUSD': 5, 'avgDailyIncomePopulation': 0.71}, 'periodType': 'days', 'timeToElapse': 58, 'reportedCases': 674, 'population': 66622705, 'totalHospitalBeds': 1380614}, 'impact': {'currentlyInfected': 6740, 'infectionsByRequestedTime': 3533701120, 'severeCasesByRequestedTime': 530055168, 'hospitalBedsByRequestedTime': -529571953, 'casesForICUByRequestedTime': 176685056, 'casesForVentilatorsByRequestedTime': 70674022, 'dollarsInFlight': 216286878}, 'severeImpact': {'currentlyInfected': 33700, 'infectionsByRequestedTime': 17668505600, 'severeCasesByRequestedTime': 2650275840, 'hospitalBedsByRequestedTime': -2649792625, 'casesForICUByRequestedTime': 883425280, 'casesForVentilatorsByRequestedTime': 353370112, 'dollarsInFlight': 1081434394}}"
 INFO:dicttoxml:Inside convert(). obj type is: "dict", obj="{'data': {'region': {'name': 'Africa', 'avgAge': 19.7, 'avgDailyIncomeInUSD': 5, 'avgDailyIncomePopulation': 0.71}, 'periodType': 'days', 'timeToElapse': 58, 'reportedCases': 674, 'population': 66622705, 'totalHospitalBeds': 1380614}, 'impact': {'currentlyInfected': 6740, 'infectionsByRequestedTime': 3533701120, 'severeCasesByRequestedTime': 530055168, 'hospitalBedsByRequestedTime': -529571953, 'casesForICUByRequestedTime': 176685056, 'casesForVentilatorsByRequestedTime': 70674022, 'dollarsInFlight': 216286878}, 'severeImpact': {'currentlyInfected': 33700, 'infectionsByRequestedTime': 17668505600, 'severeCasesByRequestedTime': 2650275840, 'hospitalBedsByRequestedTime': -2649792625, 'casesForICUByRequestedTime': 883425280, 'casesForVentilatorsByRequestedTime': 353370112, 'dollarsInFlight': 1081434394}}"
 INFO:dicttoxml:Inside convert_dict(): obj type is: "dict", obj="{'data': {'region': {'name': 'Africa', 'avgAge': 19.7, 'avgDailyIncomeInUSD': 5, 'avgDailyIncomePopulation': 0.71}, 'periodType': 'days', 'timeToElapse': 58, 'reportedCases': 674, 'population': 66622705, 'totalHospitalBeds': 1380614}, 'impact': {'currentlyInfected': 6740, 'infectionsByRequestedTime': 3533701120, 'severeCasesByRequestedTime': 530055168, 'hospitalBedsByRequestedTime': -529571953, 'casesForICUByRequestedTime': 176685056, 'casesForVentilatorsByRequestedTime': 70674022, 'dollarsInFlight': 216286878}, 'severeImpact': {'currentlyInfected': 33700, 'infectionsByRequestedTime': 17668505600, 'severeCasesByRequestedTime': 2650275840, 'hospitalBedsByRequestedTime': -2649792625, 'casesForICUByRequestedTime': 883425280, 'casesForVentilatorsByRequestedTime': 353370112, 'dollarsInFlight': 1081434394}}"
@@ -163,10 +160,21 @@ INFO:dicttoxml:Inside key_is_valid_xml(). Testing "dollarsInFlight"
 INFO:dicttoxml:Inside convert_kv(): key="dollarsInFlight", val="1081434394", type(val) is: "int"
 INFO:dicttoxml:Inside make_valid_xml_name(). Testing key "dollarsInFlight" with attr "{}"
 INFO:dicttoxml:Inside key_is_valid_xml(). Testing "dollarsInFlight"
-INFO:root:POST		/api/v1/on-covid-19/xml		200		25ms
+INFO:root:POST		/api/v1/on-covid-19/xml		200		89ms
 
-INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 16:35:14] "[37mPOST /api/v1/on-covid-19/xml HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 19:46:31] "[37mPOST /api/v1/on-covid-19/xml HTTP/1.1[0m" 200 -
 INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
 
-INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 16:35:22] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
-INFO:werkzeug: * Detected change in '/home/moringa/Documents/SDG/covid-19-tracker/app.py', reloading
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 19:47:23] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 19:47:36] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 19:47:40] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 19:47:43] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 19:47:45] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
