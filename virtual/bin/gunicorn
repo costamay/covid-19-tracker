@@ -1,4 +1,4 @@
-#!/home/moringa/Documents/SDG/covid-19-tracker/virtual/bin/python
+#!/home/moringa/Documents/SDG/covid-19-tracker/virtual/bin/python3.6
 # -*- coding: utf-8 -*-
 import re
 import sys
