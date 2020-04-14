@@ -1,9 +1,6 @@
-
 click==7.1.1
-
 Flask==1.1.2
 gunicorn==20.0.4
-
 Jinja2==2.11.1
-
 Werkzeug==1.0.1
+dicttoxml==1.7.4
