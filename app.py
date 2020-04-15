@@ -18,20 +18,6 @@ logging.basicConfig(filename='logs.txt', level=logging.INFO)
 def get_time():
     g.start_time = time.time() 
 
-@app.route('/api/v1/on-covid-19/logs', methods=['GET', 'POST'])
-def logs():
-    logs = []  
-    with open("logs.txt", "rt") as f:   
-        data = f.readlines()
-    for line in data:
-        if "root" in line and "404" not in line:
-            logs.append(line[10:])
-
-    return Response("".join(logs), mimetype="text/plain")
-
-
-
-
 @app.route('/api/v1/on-covid-19/', methods=['POST', 'GET'])
 @app.route('/api/v1/on-covid-19/json', methods=['POST', 'GET'])
 def covid():
@@ -58,13 +44,26 @@ def covid_19_xml():
                 output, attr_type=False),
                 content_type="application/xml")
         return res, 200
+    
+
+@app.route('/api/v1/on-covid-19/logs', methods=['GET', 'POST'])
+def logs():
+    logs = []  
+    with open("logs.txt", "rt") as f:   
+        data = f.readlines()
+    for line in data:
+        if "root" in line and "404" not in line:
+            logs.append(line[10:])
+
+    return Response("".join(logs), mimetype="text/plain")
+
 
 @app.after_request
 def log_request_info(response):
     response_time = int((time.time() - g.start_time) * 1000)
     status_code = response.status.split()[0]
     logging.info(
-    f"{request.method}\t\t{request.path}\t\t{status_code}\t\t{str(response_time).zfill(2)}ms\n"
+    f"{request.method}\t{request.path}\t{status_code}\t{str(response_time).zfill(2)}ms\n"
     )
 
     return response 
