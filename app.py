@@ -63,7 +63,7 @@ def log_request_info(response):
     response_time = int((time.time() - g.start_time) * 1000)
     status_code = response.status.split()[0]
     logging.info(
-    f"{request.method}\t{request.path}\t{status_code}\t{str(response_time).zfill(2)}ms\n"
+    f"{request.method}\t\t{request.path}\t\t{status_code}\t\t{str(response_time).zfill(2)}ms\n"
     )
 
     return response 
