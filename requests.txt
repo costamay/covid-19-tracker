@@ -9,3 +9,9 @@ INFO:werkzeug:127.0.0.1 - - [15/Apr/2020 09:04:54] "[37mGET /api/v1/on-covid-19
 INFO:root:GET		/api/v1/on-covid-19/		200		00ms
 
 INFO:werkzeug:127.0.0.1 - - [15/Apr/2020 09:05:02] "[37mGET /api/v1/on-covid-19/ HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2020 09:06:56] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		01ms
+
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2020 09:07:06] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
