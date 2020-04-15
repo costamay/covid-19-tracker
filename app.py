@@ -61,6 +61,8 @@ def covid_xml():
 
 @app.route('/api/v1/on-covid-19/logs', methods=['GET', 'POST'])
 def logs():
+    if request.method != "GET":
+        return Response("Method not arrowed", mimetype="text/plain", status=405)
     logs = []  
     with open("requests.txt", "rt") as f:   # read logs file 
         data = f.readlines()
