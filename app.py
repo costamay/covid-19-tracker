@@ -17,8 +17,8 @@ logging.basicConfig(filename='requests.txt', level=logging.INFO)
 def get_time():
     g.start_time = time.time()
 
-@app.route('/api/v1/on-covid-19/', methods=['POST'])
-@app.route('/api/v1/on-covid-19/json', methods=['POST'])
+@app.route('/api/v1/on-covid-19/', methods=['POST', 'GET'])
+@app.route('/api/v1/on-covid-19/json', methods=['POST', 'GET'])
 def covid_json():
     if request.method == "GET":
         res = Response("", content_type="application/json")
@@ -33,7 +33,7 @@ def covid_json():
     # output = estimator(data)
     # return jsonify(output), 200
     
-@app.route('/api/v1/on-covid-19/xml', methods=['POST'])
+@app.route('/api/v1/on-covid-19/xml', methods=['POST', 'GET'])
 def covid_xml():
     if request.method == "GET":
         res = Response("", content_type="application/xml")
@@ -59,7 +59,7 @@ def covid_xml():
     
     
 
-@app.route('/api/v1/on-covid-19/logs', methods=['GET'])
+@app.route('/api/v1/on-covid-19/logs', methods=['GET', 'POST'])
 def logs():
     logs = []  
     with open("requests.txt", "rt") as f:   # read logs file 
