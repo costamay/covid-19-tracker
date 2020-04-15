@@ -178,3 +178,39 @@ INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 19:47:43] "[37mGET /api/v1/on-covid-19
 INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
 
 INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 19:47:45] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		21ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:29:32] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/robots.txt		404		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:29:32] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+INFO:root:GET		/favicon.ico		404		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:29:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:root:GET		/api/v1/on-covid-19/		405		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:29:49] "[31m[1mGET /api/v1/on-covid-19/ HTTP/1.1[0m" 405 -
+INFO:root:GET		/api/v1/on-covid-19/json		405		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:30:00] "[31m[1mGET /api/v1/on-covid-19/json HTTP/1.1[0m" 405 -
+INFO:root:GET		/api/v1/on-covid-19/xml		405		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:30:22] "[31m[1mGET /api/v1/on-covid-19/xml HTTP/1.1[0m" 405 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:31:06] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:POST		/api/v1/on-covid-19/json		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:50:20] "[37mPOST /api/v1/on-covid-19/json HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:51:28] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:53:32] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:53:34] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
+INFO:root:GET		/api/v1/on-covid-19/logs		200		00ms
+
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2020 21:53:39] "[37mGET /api/v1/on-covid-19/logs HTTP/1.1[0m" 200 -
