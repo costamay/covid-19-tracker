@@ -6,12 +6,12 @@ import time
 import json
 import logging
 
-if "requests.txt" in os.listdir():
-    os.remove("requests.txt")
+if "logs.txt" in os.listdir():
+    os.remove("logs.txt")
     
 app = Flask(__name__)
 
-logging.basicConfig(filename='requests.txt', level=logging.INFO)
+logging.basicConfig(filename='logs.txt', level=logging.INFO)
 
 @app.before_request
 def get_time():
@@ -61,10 +61,9 @@ def covid_xml():
 
 @app.route('/api/v1/on-covid-19/logs', methods=['GET', 'POST'])
 def logs():
-    if request.method != "GET":
-        return Response("Method not arrowed", mimetype="text/plain", status=405)
+    
     logs = []  
-    with open("requests.txt", "rt") as f:   # read logs file 
+    with open("logs.txt", "rt") as f:   # read logs file 
         data = f.readlines()
     for line in data:
         if "root" in line and "404" not in line:
